@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LandEight — eight-bar landing desk</title>
+<style>
+body { font-family: system-ui, sans-serif; background:#111; color:#eee; margin:0; padding:20px; }
+h1 { font-size:1.4rem; }
+.row { display:flex; gap:12px; flex-wrap:wrap; margin:12px 0; }
+label { font-size:0.85rem; }
+input, select, button { background:#222; color:#eee; border:1px solid #444; padding:8px; border-radius:6px; }
+button { cursor:pointer; }
+button.on { background:#0a7; }
+.card { padding:10px 14px; border:1px solid #333; border-radius:8px; min-width:140px; text-align:left; }
+.card.on { border-color:#0a7; }
+.bars { display:flex; gap:8px; }
+.bar { width:60px; height:70px; background:#222; border:1px solid #333; border-radius:6px; text-align:center; padding:4px; }
+.bar.active { background:#0a7; color:#000; }
+.status { color:#0a7; font-size:0.9rem; }
+.punch { white-space:pre-wrap; background:#1a1a1a; padding:12px; border-radius:8px; font-size:0.8rem; max-height:200px; overflow:auto; }
+</style>
+</head>
+<body>
+<h1>LandEight</h1>
+<p>Eight-bar landing desk. Live FluidR3 chairs wind the density down so an unfinished loop finally has an ending.</p>
+<div id="status" class="status">Tap any control to start audio…</div>
+<div class="row">
+  <label>BPM <input id="bpm" type="number" min="60" max="180" value="92"></label>
+  <label>Key <select id="key"><option>A minor</option><option>C major</option><option>D minor</option><option>E minor</option></select></label>
+  <label>Chords <input id="chords" value="Am F C G" style="width:160px"></label>
+</div>
+<div class="row" id="recipes"></div>
+<div class="row">
+  <button id="play">Play</button>
+  <button id="stop">Stop</button>
+  <button id="export">Export WAV + MIDI</button>
+  <button id="copy">Copy punch list</button>
+</div>
+<div class="bars" id="bars"></div>
+<div class="punch" id="punch"></div>
+<script src="app.js"></script>
+</body>
+</html>
